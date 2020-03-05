@@ -11,4 +11,11 @@ public class TestUserRegistration
         Assert.assertEquals(true, result);
     }
 
+    @Test
+    public void givenLastName_WhenProper_ShouldReturnTrue()
+    {
+        UserRegistration validator = new UserRegistration();
+        boolean result = validator.validLastName("Raj");
+        Assert.assertEquals(true,result);
+    }
 }
