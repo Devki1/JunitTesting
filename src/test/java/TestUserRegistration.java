@@ -39,7 +39,15 @@ public class TestUserRegistration
     public void givenLengthPassword_WhenProper_ShouldReturnTrue()
     {
         UserRegistration validator = new UserRegistration();
-        boolean result = validator.validLengthPassword("asdHdjsiw");
+        boolean result = validator.validLengthPassword("rahulrajrahul");
+        Assert.assertEquals(true,result);
+    }
+
+    @Test
+    public void givenUpperCase_WhenProper_ShouldReturnTrue()
+    {
+        UserRegistration validator = new UserRegistration();
+        boolean result = validator.upperCaseAtleastOne("rahulRajRahul");
         Assert.assertEquals(true,result);
     }
 }
