@@ -11,6 +11,7 @@ public class UserRegistration
     String patternValidMobileNumber = "^" + COUNTRY_CODE + "[ ][9876]{1}[0-9]{9}";
     String patternValidLengthPassword = "^.{8,}$";
     String patternUpperCase="[a-z0-9a-z]*[A-Z][A-Z0-9a-z]*";
+    String patternAtLeastOneNumber="[A-Z0-9a-z]*[0-9][A-Z0-9a-z]*";
     public boolean validator(String pattern, String user)
     {
         Pattern p = Pattern.compile(pattern);
@@ -45,6 +46,10 @@ public class UserRegistration
     public boolean upperCaseAtleastOne(String upperCase)
     {
         return validator(patternUpperCase,upperCase);
+    }
+    public boolean atleastOneNumericValue(String numericValue)
+    {
+        return validator(patternAtLeastOneNumber,numericValue);
     }
 }
 
