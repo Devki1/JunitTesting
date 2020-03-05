@@ -47,7 +47,16 @@ public class TestUserRegistration
     public void givenUpperCase_WhenProper_ShouldReturnTrue()
     {
         UserRegistration validator = new UserRegistration();
-        boolean result = validator.upperCaseAtleastOne("rahulRajRahul");
+        boolean result = validator.upperCaseAtleastOne("rahulRajrahul");
         Assert.assertEquals(true,result);
+    }
+
+    @Test
+    public void givenNumericValue_WhenProper_ShouldReturnTrue()
+    {
+        UserRegistration validator = new UserRegistration();
+        boolean result = validator.atleastOneNumericValue("rahulRaj5rahul");
+        Assert.assertEquals(true,result);
+
     }
 }
