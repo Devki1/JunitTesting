@@ -9,9 +9,10 @@ public class UserRegistration {
     String patternForEmailId = "^[a-z]{1,}([.]?[-]?[+]?[a-z0-9]{1,})?[@]{1}[a-z0-9]{1,}[.]{1}[a-z]{2,4}([.]?[a-z]{2,4})?$";
     String patternValidMobileNumber = "^" + COUNTRY_CODE + "[ ][9876]{1}[0-9]{9}";
     String patternValidLengthPassword = "^.{8,}$";
-    String patternUpperCase = "[a-z0-9a-z]*[A-Z][A-Z0-9a-z]*";
-    String patternAtLeastOneNumber = "[A-Z0-9a-z]*[0-9][A-Z0-9a-z]*";
-    String patternExactlyOneSpecialCharacter = "[A-Z0-9a-z]*[!@#%^&]{1}[A-Z0-9a-z]*";
+    String patternUpperCase = ".*[A-Z]+.*";
+    String patternAtLeastOneNumber = ".*[0-9].*";
+    String patternExactlyOneSpecialCharacter = "[A-Z0-9a-z]*[!@#%&]{1}[A-Z0-9a-z]*";
+    boolean outcome=true;
 
     public boolean validator(String pattern, String user) {
         Pattern p = Pattern.compile(pattern);
@@ -55,7 +56,42 @@ public class UserRegistration {
 
     //Validating exactly one special character in a password
     public boolean exactlyOneSpecialCharacter(String specialCharacter) {
+
         return validator(patternExactlyOneSpecialCharacter, specialCharacter);
+    }
+    //Check the combination of all password
+    public boolean checkPassword(String password)
+    {
+        if (validLengthPassword(password)==true)
+        {
+            if (upperCaseAtleastOne(password) == true)
+            {
+                if (atleastOneNumericValue(password) == true)
+                {
+                    if (exactlyOneSpecialCharacter(password) == true)
+                    {
+                        outcome = true;
+                    }
+                    else
+                    {
+                        outcome = false;
+                    }
+                }
+                else
+                {
+                    outcome = false;
+                }
+            }
+            else
+            {
+                outcome = false;
+            }
+        }
+        else
+        {
+            outcome = false;
+        }
+        return outcome;
     }
 }
 
