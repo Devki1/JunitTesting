@@ -59,11 +59,11 @@ public class TestUserRegistration
         Assert.assertEquals(true,result);
     }
     @Test
-    //Test case for validating password for atleast one special character
+    //Test case for validating password for exactly one special character
     public void givenSpecialCharacter_WhenProper_ShouldReturnTrue()
     {
         UserRegistration validator = new UserRegistration();
-        boolean result = validator.atleastOneSpecialCharacter("rahulRaj5@rahul");
+        boolean result = validator.exactlyOneSpecialCharacter("rahulRaj5@rahul");
         Assert.assertEquals(true,result);
     }
 }
