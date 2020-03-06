@@ -12,12 +12,14 @@ public class UserRegistration
     String patternValidLengthPassword = "^.{8,}$";
     String patternUpperCase="[a-z0-9a-z]*[A-Z][A-Z0-9a-z]*";
     String patternAtLeastOneNumber="[A-Z0-9a-z]*[0-9][A-Z0-9a-z]*";
+    String patternAtLeastOneSpecialCharacter="[A-Z0-9a-z]*[!@#%^&]{1}[A-Z0-9a-z]*";
     public boolean validator(String pattern, String user)
     {
         Pattern p = Pattern.compile(pattern);
         Matcher m = p.matcher(user);
         return m.matches();
     }
+    //Validating for first name
     public boolean validFirstName(String firstName)
     {
         return validator(patternValidName, firstName);
@@ -50,6 +52,11 @@ public class UserRegistration
     public boolean atleastOneNumericValue(String numericValue)
     {
         return validator(patternAtLeastOneNumber,numericValue);
+    }
+    //Validating atleast one special character in a password
+    public boolean atleastOneSpecialCharacter(String specialCharacter)
+    {
+        return validator(patternAtLeastOneSpecialCharacter,specialCharacter);
     }
 }
 
